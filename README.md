@@ -2,6 +2,19 @@
 
 基于 **pytest + requests + Allure** 的接口自动化测试项目，覆盖小牛电商系统核心接口（登录、商品、购物车、订单），共 **34 条自动化用例**。
 
+## 📑 目录导航
+
+| 想看什么 | 去哪看 |
+|---|---|
+| 项目说明（本文件） | `README.md` |
+| 核心测试用例（34 条） | `scripts/test_api.py` |
+| 测试数据（Excel 数据驱动） | `data/test_api_login.xlsx` |
+| 公共封装（登录/日志/读数据） | `common/` |
+| 环境配置（地址/账号密码） | `config.ini` |
+| pytest 配置 | `pytest.ini` |
+| 运行日志 | `logs/test.log`（运行自动生成） |
+| 测试报告 | 见下方"快速开始-查看报告" |
+
 ## 技术栈
 
 | 技术 | 用途 |
@@ -22,7 +35,7 @@ PythonTestCode/
 ├── common/
 │   ├── request_util.py   # 公共封装：登录函数、读取配置
 │   ├── log_util.py       # 日志工具（输出到 logs/test.log）
-│   └── read_data.py      # 数据读取（JSON 数据驱动）
+│   └── read_data.py      # 数据读取（JSON/Excel 数据驱动）
 ├── data/
 │   └── test_api_login.xlsx   # 登录测试数据（Excel 数据驱动）
 ├── logs/
@@ -79,7 +92,7 @@ allure serve allure-results    # 启动本地服务，浏览器自动打开
 ## 框架设计特点
 
 - **配置分层**：服务器地址、账号密码放 `config.ini`，换环境只改配置文件
-- **数据驱动**：测试数据放 JSON 文件，参数化读取，新增数据不用改代码
+- **数据驱动**：测试数据放 Excel/JSON 文件，参数化读取，新增数据不用改代码
 - **日志记录**：登录请求/响应写入 `logs/test.log`，失败可追溯
 - **用例独立**：下单用例自给自足（先清购物车→加购→下单），不依赖环境残留数据
 - **框架分层**：配置层 → 公共层（common）→ 用例层（scripts）
