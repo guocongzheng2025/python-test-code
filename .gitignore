@@ -1,0 +1,18 @@
+# Python 缓存
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# 测试报告（每次运行重新生成，不用上传）
+allure-results/
+allure-report/
+report/
+
+# 日志
+logs/
+
+# IDE 配置
+.idea/
+
+# 临时文件
+pip_out.txt
